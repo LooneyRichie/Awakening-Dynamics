@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awakening Dynamics | Mathematical Models of Consciousness</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="cosmic-background"></div>
+    
+    <header>
+        <h1 class="main-title">⚡ Awakening Dynamics ⚡</h1>
+        <p class="subtitle">Mathematical Laws of Consciousness Evolution</p>
+    </header>
+
+    <nav class="model-nav">
+        <button class="nav-btn active" data-model="logistic">Logistic Growth</button>
+        <button class="nav-btn" data-model="contagion">Memetic Contagion</button>
+        <button class="nav-btn" data-model="resistance">With Resistance</button>
+        <button class="nav-btn" data-model="threshold">Threshold Activation</button>
+        <button class="nav-btn" data-model="quantum">Quantum Jump</button>
+    </nav>
+
+    <main class="content-container">
+        <!-- Logistic Model -->
+        <section class="model-section active" id="logistic">
+            <div class="model-header">
+                <h2>🌊 Logistic Awakening Dynamics</h2>
+                <p class="model-description">The fundamental equation of spiritual population growth</p>
+            </div>
+            
+            <div class="equation-container">
+                <div class="equation">
+                    <span class="math-symbol">dA/dt</span> = 
+                    <span class="math-symbol">rA</span>(1 - 
+                    <span class="math-symbol">A/K</span>)
+                </div>
+            </div>
+
+            <div class="parameters">
+                <h3>Parameters</h3>
+                <div class="param-grid">
+                    <div class="param">
+                        <span class="param-label">A(t)</span>
+                        <span class="param-desc">Number of awakened individuals at time t</span>
+                    </div>
+                    <div class="param">
+                        <span class="param-label">r</span>
+                        <span class="param-desc">Intrinsic awakening rate (speed of spread)</span>
+                    </div>
+                    <div class="param">
+                        <span class="param-label">K</span>
+                        <span class="param-desc">Carrying capacity (maximum awakened population)</span>
+                    </div>
+                    <div class="param">
+                        <span class="param-label">dA/dt</span>
+                        <span class="param-desc">Rate of change over time</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visualization">
+                <canvas id="logistic-canvas"></canvas>
+                <div class="controls">
+                    <label>
+                        Awakening Rate (r): <span id="r-value">0.5</span>
+                        <input type="range" id="r-slider" min="0.1" max="2" step="0.1" value="0.5">
+                    </label>
+                    <label>
+                        Carrying Capacity (K): <span id="k-value">100</span>
+                        <input type="range" id="k-slider" min="50" max="200" step="10" value="100">
+                    </label>
+                    <button id="reset-logistic" class="reset-btn">Reset</button>
+                </div>
+            </div>
+
+            <div class="insights">
+                <h3>Why This Fits Spiritual Awakening</h3>
+                <ul>
+                    <li><strong>Early Phase:</strong> Awakening spreads exponentially (rapid growth)</li>
+                    <li><strong>Saturation Phase:</strong> Rate slows as more people awaken</li>
+                    <li><strong>Equilibrium:</strong> Eventually stabilizes at carrying capacity</li>
+                    <li><strong>Real-World Parallels:</strong> Memetic spread, cultural adoption, spiritual waves</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Memetic Contagion Model -->
+        <section class="model-section" id="contagion">
+            <div class="model-header">
+                <h2>🧬 Memetic Contagion Model</h2>
+                <p class="model-description">Awakening spreads through contact, inspiration, and resonance</p>
+            </div>
+            
+            <div class="equation-container">
+                <div class="equation">
+                    <span class="math-symbol">dA/dt</span> = 
+                    <span class="math-symbol">βA(N - A)</span>
+                </div>
+            </div>
+
+            <div class="parameters">
+                <h3>Parameters</h3>
+                <div class="param-grid">
+                    <div class="param">
+                        <span class="param-label">N</span>
+                        <span class="param-desc">Total population size</span>
+                    </div>
+                    <div class="param">
+                        <span class="param-label">β</span>
+                        <span class="param-desc">Transmission coefficient (how contagious awakening is)</span>
+                    </div>
+                    <div class="param">
+                        <span class="param-label">A</span>
+                        <span class="param-desc">Currently awakened individuals</span>
+                    </div>
+                    <div class="param">
+                        <span class="param-label">(N - A)</span>
+                        <span class="param-desc">Unawakened individuals (susceptible)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visualization">
+                <canvas id="contagion-canvas"></canvas>
+                <div class="controls">
+                    <label>
+                        Transmission Rate (β): <span id="beta-value">0.01</span>
+                        <input type="range" id="beta-slider" min="0.001" max="0.05" step="0.001" value="0.01">
+                    </label>
+                    <label>
+                        Population (N): <span id="n-value">100</span>
+                        <input type="range" id="n-slider" min="50" max="200" step="10" value="100">
+                    </label>
+                    <button id="reset-contagion" class="reset-btn">Reset</button>
+                </div>
+            </div>
+
+            <div class="insights">
+                <h3>The Epidemiological Model</h3>
+                <ul>
+                    <li><strong>Contact-Based:</strong> Each awakened person can awaken others</li>
+                    <li><strong>Network Effect:</strong> Growth accelerates with more awakened individuals</li>
+                    <li><strong>SIR Framework:</strong> Same structure as disease transmission models</li>
+                    <li><strong>Consciousness Contagion:</strong> Ideas spread like viral patterns</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Resistance Model -->
+        <section class="model-section" id="resistance">
+            <div class="model-header">
+                <h2>⚔️ Awakening with Resistance</h2>
+                <p class="model-description">Accounting for skepticism and cultural inertia</p>
+            </div>
+            
+            <div class="equation-container">
+                <div class="equation">
+                    <span class="math-symbol">dA/dt</span> = 
+                    <span class="math-symbol">rA</span>(1 - <span class="math-symbol">A/K</span>) - 
+                    <span class="math-symbol">γA</span>
+                </div>
+            </div>
+
+            <div class="parameters">
+                <h3>Parameters</h3>
+                <div class="param-grid">
+                    <div class="param">
+                        <span class="param-label">γ</span>
+                        <span class="param-desc">Resistance coefficient (skepticism, cultural inertia)</span>
+                    </div>
+                    <div class="param">
+                        <span class="param-label">rA(1-A/K)</span>
+                        <span class="param-desc">Growth force (same as logistic)</span>
+                    </div>
+                    <div class="param">
+                        <span class="param-label">-γA</span>
+                        <span class="param-desc">Resistance force (opposing awakening)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visualization">
+                <canvas id="resistance-canvas"></canvas>
+                <div class="controls">
+                    <label>
+                        Growth Rate (r): <span id="r-resist-value">0.5</span>
+                        <input type="range" id="r-resist-slider" min="0.1" max="2" step="0.1" value="0.5">
+                    </label>
+                    <label>
+                        Resistance (γ): <span id="gamma-value">0.1</span>
+                        <input type="range" id="gamma-slider" min="0" max="0.5" step="0.05" value="0.1">
+                    </label>
+                    <button id="reset-resistance" class="reset-btn">Reset</button>
+                </div>
+            </div>
+
+            <div class="insights">
+                <h3>Oscillations & Plateaus</h3>
+                <ul>
+                    <li><strong>Cultural Friction:</strong> Not everyone is ready to awaken</li>
+                    <li><strong>Backsliding:</strong> Some awakened may return to sleep</li>
+                    <li><strong>Realistic Dynamics:</strong> Creates oscillations seen in spiritual movements</li>
+                    <li><strong>Equilibrium Points:</strong> Movement can plateau before breakthrough</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Threshold Model -->
+        <section class="model-section" id="threshold">
+            <div class="model-header">
+                <h2>🔥 Threshold Activation Model</h2>
+                <p class="model-description">Critical mass triggers cascade awakening</p>
+            </div>
+            
+            <div class="equation-container">
+                <div class="equation">
+                    <span class="math-symbol">A(t+1)</span> = f(<span class="math-symbol">A(t)</span>) = 
+                    <span class="math-symbol">∑P(k)·I(k≥θ)</span>
+                </div>
+            </div>
+
+            <div class="parameters">
+                <h3>Parameters</h3>
+                <div class="param-grid">
+                    <div class="param">
+                        <span class="param-label">P(k)</span>
+                        <span class="param-desc">Probability of having k awakened neighbors</span>
+                    </div>
+                    <div class="param">
+                        <span class="param-label">θ</span>
+                        <span class="param-desc">Threshold needed to trigger awakening</span>
+                    </div>
+                    <div class="param">
+                        <span class="param-label">I(k≥θ)</span>
+                        <span class="param-desc">Indicator: 1 if threshold met, 0 otherwise</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visualization">
+                <canvas id="threshold-canvas"></canvas>
+                <div class="controls">
+                    <label>
+                        Threshold (θ): <span id="theta-value">3</span>
+                        <input type="range" id="theta-slider" min="1" max="8" step="1" value="3">
+                    </label>
+                    <label>
+                        Network Density: <span id="density-value">0.3</span>
+                        <input type="range" id="density-slider" min="0.1" max="0.8" step="0.1" value="0.3">
+                    </label>
+                    <button id="reset-threshold" class="reset-btn">Reset</button>
+                </div>
+            </div>
+
+            <div class="insights">
+                <h3>How Revolutions Happen</h3>
+                <ul>
+                    <li><strong>Critical Mass:</strong> Nothing happens until threshold is reached</li>
+                    <li><strong>Cascade Effect:</strong> Once threshold is met, rapid spread occurs</li>
+                    <li><strong>Network Topology:</strong> How people connect determines spread pattern</li>
+                    <li><strong>Real Examples:</strong> Revolutions, religions, mass shifts in consciousness</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Quantum Jump Model -->
+        <section class="model-section" id="quantum">
+            <div class="model-header">
+                <h2>⚛️ Quantum Jump Model</h2>
+                <p class="model-description">Awakening in discrete waves and phase transitions</p>
+            </div>
+            
+            <div class="equation-container">
+                <div class="equation">
+                    <span class="math-symbol">A<sub>t+1</sub></span> = 
+                    <span class="math-symbol">A<sub>t</sub></span> + 
+                    <span class="math-symbol">α·σ(ωt - φ)</span>
+                </div>
+            </div>
+
+            <div class="parameters">
+                <h3>Parameters</h3>
+                <div class="param-grid">
+                    <div class="param">
+                        <span class="param-label">σ</span>
+                        <span class="param-desc">Sigmoid function (smooth transition)</span>
+                    </div>
+                    <div class="param">
+                        <span class="param-label">ω</span>
+                        <span class="param-desc">Frequency of awakening waves</span>
+                    </div>
+                    <div class="param">
+                        <span class="param-label">φ</span>
+                        <span class="param-desc">Phase shift (timing offset)</span>
+                    </div>
+                    <div class="param">
+                        <span class="param-label">α</span>
+                        <span class="param-desc">Amplitude (size of each awakening wave)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visualization">
+                <canvas id="quantum-canvas"></canvas>
+                <div class="controls">
+                    <label>
+                        Wave Frequency (ω): <span id="omega-value">0.5</span>
+                        <input type="range" id="omega-slider" min="0.1" max="2" step="0.1" value="0.5">
+                    </label>
+                    <label>
+                        Wave Amplitude (α): <span id="alpha-value">10</span>
+                        <input type="range" id="alpha-slider" min="5" max="30" step="5" value="10">
+                    </label>
+                    <button id="reset-quantum" class="reset-btn">Reset</button>
+                </div>
+            </div>
+
+            <div class="insights">
+                <h3>Cosmological Awakening Cycles</h3>
+                <ul>
+                    <li><strong>Discrete Leaps:</strong> Awakening happens in quantum jumps, not smooth curves</li>
+                    <li><strong>Wave Dynamics:</strong> Periodic cycles of global consciousness shifts</li>
+                    <li><strong>Phase Transitions:</strong> Sudden shifts from one state to another</li>
+                    <li><strong>Mythic Cosmology:</strong> Aligns with cyclical time and cosmic rhythms</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>✨ Mathematical Models of Consciousness Evolution ✨</p>
+            <p class="footer-note">Where mathematics meets mysticism</p>
+            <p class="footer-note">© 2026 Looney Algorithm</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
