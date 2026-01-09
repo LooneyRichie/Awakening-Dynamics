@@ -858,7 +858,7 @@ const auraPractices = {
     'cleansing': {
         title: 'Aura Cleansing Practice',
         steps: [
-            'Close your eyes and take three deep breaths...',
+            'Relax and take three deep breaths...',
             'Visualize a brilliant white light above your head...',
             'See this light cascading down through your aura...',
             'The light dissolves all darkness, negativity, and attachments...',

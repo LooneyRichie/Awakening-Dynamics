@@ -1680,3 +1680,366 @@ footer p {
         font-size: 1.6rem;
     }
 }
+
+/* ==========================================
+   SPIRITUAL REPROGRAMMING PAGE STYLES
+   ========================================== */
+
+.spiritual-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 1.5rem 0;
+}
+
+.spiritual-list li {
+    padding: 0.8rem 0 0.8rem 2rem;
+    position: relative;
+    line-height: 1.8;
+}
+
+.spiritual-list li:before {
+    content: "✨";
+    position: absolute;
+    left: 0;
+    top: 0.8rem;
+}
+
+.technique-block {
+    background: rgba(99, 102, 241, 0.05);
+    border-left: 4px solid var(--primary-color);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+}
+
+.technique-block h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.technique-block p,
+.technique-block ul {
+    margin: 0.8rem 0;
+}
+
+.technique-block ul {
+    list-style: none;
+    padding-left: 1.5rem;
+}
+
+.technique-block ul li {
+    padding: 0.4rem 0;
+    position: relative;
+}
+
+.technique-block ul li:before {
+    content: "→";
+    position: absolute;
+    left: -1.5rem;
+    color: var(--primary-color);
+}
+
+.principle-box {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1));
+    border: 2px solid var(--primary-color);
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.principle-box h4 {
+    color: var(--secondary-color);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.formula {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+.warning {
+    color: #f59e0b;
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+    display: block;
+}
+
+/* ==========================================
+   SPIRITUAL STORIES PAGE STYLES
+   ========================================== */
+
+.story-form {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    color: var(--text-light);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.form-group input[type="text"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(30, 41, 59, 0.6);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-light);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: rgba(30, 41, 59, 0.8);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 200px;
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+.char-counter {
+    text-align: right;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1.2rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.submit-message {
+    display: none;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.submit-message.success {
+    background: rgba(34, 197, 94, 0.2);
+    border: 2px solid #22c55e;
+    color: #22c55e;
+}
+
+.submit-message.error {
+    background: rgba(239, 68, 68, 0.2);
+    border: 2px solid #ef4444;
+    color: #ef4444;
+}
+
+/* Story Filters */
+.story-filters {
+    display: flex;
+    gap: 0.8rem;
+    margin: 1.5rem 0 2rem 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-btn {
+    padding: 0.6rem 1.2rem;
+    background: rgba(30, 41, 59, 0.6);
+    border: 2px solid var(--border-color);
+    color: var(--text-light);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background: rgba(99, 102, 241, 0.3);
+    border-color: var(--primary-color);
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-color: var(--secondary-color);
+}
+
+/* Stories Container */
+.stories-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.story-card {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.story-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.2);
+    transform: translateY(-2px);
+}
+
+.story-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.story-header h4 {
+    color: var(--text-light);
+    font-size: 1.5rem;
+    margin: 0;
+    flex: 1;
+    min-width: 200px;
+}
+
+.story-category {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.story-meta {
+    display: flex;
+    gap: 1.5rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.story-author,
+.story-date {
+    display: flex;
+    align-items: center;
+}
+
+.story-author:before {
+    content: "👤";
+    margin-right: 0.5rem;
+}
+
+.story-date:before {
+    content: "📅";
+    margin-right: 0.5rem;
+}
+
+.story-content {
+    color: var(--text-light);
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+.story-content p {
+    margin: 0;
+}
+
+.no-stories {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* Responsive Design for New Pages */
+@media (max-width: 768px) {
+    .technique-block {
+        padding: 1rem;
+    }
+
+    .principle-box {
+        padding: 1.5rem;
+    }
+
+    .formula {
+        font-size: 1rem;
+    }
+
+    .story-form {
+        padding: 0 1rem;
+    }
+
+    .story-header {
+        flex-direction: column;
+    }
+
+    .story-header h4 {
+        font-size: 1.2rem;
+    }
+
+    .story-filters {
+        gap: 0.5rem;
+    }
+
+    .filter-btn {
+        font-size: 0.85rem;
+        padding: 0.5rem 1rem;
+    }
+}

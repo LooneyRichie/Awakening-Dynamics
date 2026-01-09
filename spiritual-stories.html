@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spiritual Stories | Share Your Journey</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="portal-styles.css">
+</head>
+<body>
+    <div class="cosmic-background"></div>
+    
+    <header>
+        <h1 class="main-title">📖 Spiritual Stories 📖</h1>
+        <p class="subtitle">Share Your Journey, Inspire Others</p>
+        <div class="nav-links">
+            <a href="index.html" class="portal-nav-btn">← Mathematical Models</a>
+            <a href="awakening-portal.html" class="portal-nav-btn">Awakening Portal</a>
+            <a href="reprogramming.html" class="portal-nav-btn">Reprogramming</a>
+        </div>
+    </header>
+
+    <main class="portal-container">
+        
+        <section class="portal-section active">
+            <div class="section-header">
+                <h2>✨ Community Spiritual Experiences ✨</h2>
+                <p class="section-intro">Learn from each other's awakenings, healings, and transformations</p>
+            </div>
+
+            <!-- Share Story Form -->
+            <div class="content-card">
+                <h3>🌟 Share Your Story</h3>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">Your experience may be the light someone else needs. Share your spiritual journey, awakening, healing, or manifestation story.</p>
+                
+                <form id="storyForm" class="story-form">
+                    <div class="form-group">
+                        <label for="storyName">Your Name (or Anonymous)</label>
+                        <input type="text" id="storyName" name="storyName" maxlength="50" required placeholder="Enter your name or 'Anonymous'">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="storyTitle">Story Title</label>
+                        <input type="text" id="storyTitle" name="storyTitle" maxlength="100" required placeholder="Give your story a title">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="storyCategory">Category</label>
+                        <select id="storyCategory" name="storyCategory" required>
+                            <option value="">Select a category...</option>
+                            <option value="awakening">Spiritual Awakening</option>
+                            <option value="healing">Energy Healing</option>
+                            <option value="manifestation">Manifestation Success</option>
+                            <option value="curse-breaking">Breaking Curses/Hexes</option>
+                            <option value="ancestral">Ancestral Healing</option>
+                            <option value="meditation">Meditation Experience</option>
+                            <option value="synchronicity">Synchronicities & Signs</option>
+                            <option value="other">Other Spiritual Experience</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="storyContent">Your Story</label>
+                        <textarea id="storyContent" name="storyContent" rows="10" maxlength="5000" required placeholder="Share your experience in detail... (max 5000 characters)"></textarea>
+                        <div class="char-counter">
+                            <span id="charCount">0</span> / 5000 characters
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Share Story 🌟</button>
+                </form>
+
+                <div id="submitMessage" class="submit-message"></div>
+            </div>
+
+            <!-- Stories Display -->
+            <div class="content-card" style="margin-top: 40px;">
+                <h3>📚 Community Stories</h3>
+                
+                <!-- Filter Options -->
+                <div class="story-filters">
+                    <button class="filter-btn active" data-category="all">All Stories</button>
+                    <button class="filter-btn" data-category="awakening">Awakening</button>
+                    <button class="filter-btn" data-category="healing">Healing</button>
+                    <button class="filter-btn" data-category="manifestation">Manifestation</button>
+                    <button class="filter-btn" data-category="curse-breaking">Curse Breaking</button>
+                    <button class="filter-btn" data-category="ancestral">Ancestral</button>
+                    <button class="filter-btn" data-category="meditation">Meditation</button>
+                    <button class="filter-btn" data-category="synchronicity">Synchronicity</button>
+                    <button class="filter-btn" data-category="other">Other</button>
+                </div>
+
+                <!-- Stories Container -->
+                <div id="storiesContainer" class="stories-container">
+                    <!-- Sample Story -->
+                    <div class="story-card" data-category="awakening">
+                        <div class="story-header">
+                            <h4>My Kundalini Awakening Journey</h4>
+                            <span class="story-category">Spiritual Awakening</span>
+                        </div>
+                        <div class="story-meta">
+                            <span class="story-author">By Sarah M.</span>
+                            <span class="story-date">January 2026</span>
+                        </div>
+                        <div class="story-content">
+                            <p>After years of meditation practice, I experienced a spontaneous kundalini awakening. It started with intense energy at the base of my spine, traveling up through each chakra. My body shook uncontrollably, and I saw visions of light beings. For weeks after, I experienced heightened intuition, vivid dreams, and a deep connection to everything around me. This experience completely transformed my understanding of reality and my purpose here. I learned that awakening isn't a destination, it's a continuous journey of expansion and remembering who we truly are.</p>
+                        </div>
+                    </div>
+
+                    <div class="story-card" data-category="manifestation">
+                        <div class="story-header">
+                            <h4>Manifested My Dream Job in 30 Days</h4>
+                            <span class="story-category">Manifestation</span>
+                        </div>
+                        <div class="story-meta">
+                            <span class="story-author">By Michael T.</span>
+                            <span class="story-date">December 2025</span>
+                        </div>
+                        <div class="story-content">
+                            <p>I was stuck in a job I hated for years. After learning about manifestation, I got specific about my dream job, wrote it as if I already had it, and felt the feelings of having it daily. I let go of attachment to how it would come. Exactly 30 days later, a former colleague reached out with an opportunity that matched my vision perfectly, even down to the remote work setup and the salary I had visualized! The key was truly believing it was already mine and staying in that elevated emotional state.</p>
+                        </div>
+                    </div>
+
+                    <div class="story-card" data-category="ancestral">
+                        <div class="story-header">
+                            <h4>Breaking the Family Poverty Curse</h4>
+                            <span class="story-category">Ancestral Healing</span>
+                        </div>
+                        <div class="story-meta">
+                            <span class="story-author">By Anonymous</span>
+                            <span class="story-date">November 2025</span>
+                        </div>
+                        <div class="story-content">
+                            <p>My family struggled with poverty for generations. After doing ancestral healing work and declaring myself a cycle breaker, everything shifted. I used the cord cutting technique and rewrote the family narrative. Within months, I got a promotion I didn't even apply for, received an unexpected inheritance, and opportunities for abundance started flowing in. More importantly, I noticed my siblings also began experiencing financial breakthroughs. Healing yourself truly heals the entire lineage!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="noStories" class="no-stories" style="display: none;">
+                    <p>No stories found in this category yet. Be the first to share!</p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer style="text-align: center; padding: 40px 20px; color: var(--text-muted); border-top: 1px solid var(--border-color); margin-top: 60px;">
+        <p>🌟 Every story shared is a beacon of light for others on their path 🌟</p>
+        <p style="margin-top: 10px; font-size: 0.9em;">© 2026 Awakening Dynamics</p>
+    </footer>
+
+    <script src="stories-script.js"></script>
+</body>
+</html>
