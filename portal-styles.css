@@ -2010,28 +2010,89 @@ footer p {
 
 /* Responsive Design for New Pages */
 @media (max-width: 768px) {
+    /* Reprogramming Page Mobile */
+    .content-card {
+        padding: 1.5rem;
+    }
+
+    .content-card h3 {
+        font-size: 1.5rem;
+    }
+
     .technique-block {
         padding: 1rem;
+    }
+
+    .technique-block h4 {
+        font-size: 1.1rem;
     }
 
     .principle-box {
         padding: 1.5rem;
     }
 
-    .formula {
-        font-size: 1rem;
+    .principle-box h4 {
+        font-size: 1.2rem;
     }
 
+    .formula {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .spiritual-list li {
+        padding-left: 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    /* Stories Page Mobile */
     .story-form {
-        padding: 0 1rem;
+        padding: 0;
+    }
+
+    .form-group input[type="text"],
+    .form-group select,
+    .form-group textarea {
+        font-size: 16px; /* Prevents zoom on iOS */
+        padding: 0.8rem;
+    }
+
+    .form-group label {
+        font-size: 0.95rem;
+    }
+
+    .submit-btn {
+        padding: 1rem;
+        font-size: 1rem;
     }
 
     .story-header {
         flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
     }
 
     .story-header h4 {
         font-size: 1.2rem;
+    }
+
+    .story-category {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.8rem;
+    }
+
+    .story-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    .story-content {
+        font-size: 0.95rem;
+    }
+
+    .story-card {
+        padding: 1.5rem;
     }
 
     .story-filters {
@@ -2041,5 +2102,88 @@ footer p {
     .filter-btn {
         font-size: 0.85rem;
         padding: 0.5rem 1rem;
+        flex: 1 1 auto;
+        min-width: 80px;
+    }
+
+    .char-counter {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Extra Small Mobile - Reprogramming Page */
+    .content-card {
+        padding: 1rem;
+    }
+
+    .content-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .technique-block {
+        padding: 0.8rem;
+        margin: 1rem 0;
+    }
+
+    .technique-block h4 {
+        font-size: 1rem;
+    }
+
+    .principle-box {
+        padding: 1rem;
+    }
+
+    .principle-box h4 {
+        font-size: 1.1rem;
+    }
+
+    .formula {
+        font-size: 0.9rem;
+    }
+
+    .spiritual-list li {
+        font-size: 0.9rem;
+        padding-left: 1.2rem;
+    }
+
+    /* Extra Small Mobile - Stories Page */
+    .story-card {
+        padding: 1rem;
+    }
+
+    .story-header h4 {
+        font-size: 1.1rem;
+    }
+
+    .story-category {
+        font-size: 0.75rem;
+    }
+
+    .story-content {
+        font-size: 0.9rem;
+    }
+
+    .filter-btn {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.6rem;
+        min-width: 70px;
+    }
+
+    .form-group input[type="text"],
+    .form-group select,
+    .form-group textarea {
+        font-size: 16px;
+        padding: 0.7rem;
+    }
+
+    .submit-btn {
+        font-size: 0.95rem;
+        padding: 0.9rem;
+    }
+
+    .submit-message {
+        font-size: 0.9rem;
+        padding: 0.8rem;
     }
 }
