@@ -6,6 +6,8 @@
     <title>Spiritual Awakening Portal | Journey to Enlightenment</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="portal-styles.css">
+    <!-- ResponsiveVoice for text-to-speech fallback -->
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=ZQN0mCq9"></script>
 </head>
 <body>
     <div class="cosmic-background"></div>
@@ -401,6 +403,24 @@
                         <h3 id="med-title">Select a Meditation</h3>
                         <p id="med-description">Choose from the meditations below</p>
                         <div id="med-duration"></div>
+                    </div>
+
+                    <div class="meditation-script-display">
+                        <p id="med-script-text">Meditation guidance will appear here...</p>
+                    </div>
+
+                    <div class="voice-controls">
+                        <label class="voice-toggle">
+                            <input type="checkbox" id="voice-enabled" checked>
+                            <span>🔊 Voice Guidance</span>
+                        </label>
+                        <button id="test-voice" class="test-voice-btn">Test Voice</button>
+                        <label class="voice-setting">
+                            Speed: <input type="range" id="voice-rate" min="0.5" max="1.5" step="0.1" value="0.9">
+                        </label>
+                        <label class="voice-setting">
+                            Pitch: <input type="range" id="voice-pitch" min="0.5" max="2" step="0.1" value="1">
+                        </label>
                     </div>
 
                     <div class="meditation-controls">
@@ -826,5 +846,19 @@
     </footer>
 
     <script src="portal-script.js"></script>
+    
+    <!-- On-screen debug panel -->
+    <div id="debug-panel" style="position: fixed; bottom: 10px; left: 10px; max-width: 400px; max-height: 300px; overflow-y: auto; background: rgba(0,0,0,0.9); color: #0f0; padding: 10px; font-family: monospace; font-size: 11px; border: 2px solid #0f0; border-radius: 5px; z-index: 10000;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+            <strong>🔧 DEBUG LOG</strong>
+            <button onclick="document.getElementById('debug-panel').style.display='none'" style="background: #f00; color: white; border: none; padding: 2px 8px; cursor: pointer;">X</button>
+        </div>
+        <div id="debug-log" style="font-size: 10px;"></div>
+    </div>
+    
+    <!-- Debug button for speech testing -->
+    <button onclick="debugSpeech()" style="position: fixed; bottom: 10px; right: 10px; z-index: 1000; padding: 8px 12px; background: #333; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 12px;">
+        🔧 Debug Speech
+    </button>
 </body>
 </html>

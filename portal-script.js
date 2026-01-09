@@ -354,6 +354,50 @@ binauralStopButton.addEventListener('click', stopBinaural);
 // GUIDED MEDITATION
 // ==========================================
 
+// Visual debug logging function
+function debugLog(message, type = 'info') {
+    console.log(message);
+    const logPanel = document.getElementById('debug-log');
+    if (logPanel) {
+        const color = type === 'error' ? '#f00' : type === 'success' ? '#0f0' : type === 'warn' ? '#ff0' : '#0f0';
+        const time = new Date().toLocaleTimeString();
+        logPanel.innerHTML += `<div style="color: ${color}; margin: 2px 0;">[${time}] ${message}</div>`;
+        logPanel.scrollTop = logPanel.scrollHeight;
+    }
+}
+
+// Text-to-speech voice loading
+let voices = [];
+let voicesLoaded = false;
+
+function loadVoices() {
+    voices = window.speechSynthesis.getVoices();
+    debugLog(`Available voices: ${voices.length}`);
+    if (voices.length > 0) {
+        voicesLoaded = true;
+        debugLog(`Sample voices: ${voices.slice(0, 3).map(v => v.name).join(', ')}`);
+    }
+    return voices.length > 0;
+}
+
+// Load voices immediately and when they change
+loadVoices();
+if (window.speechSynthesis.onvoiceschanged !== undefined) {
+    window.speechSynthesis.onvoiceschanged = loadVoices;
+}
+
+// Check for ResponsiveVoice fallback
+setTimeout(() => {
+    if (voices.length === 0) {
+        debugLog('⚠️ No system voices found. Checking fallback...', 'warn');
+        if (typeof responsiveVoice !== 'undefined') {
+            debugLog('✅ ResponsiveVoice loaded successfully!', 'success');
+        } else {
+            debugLog('❌ ResponsiveVoice failed to load', 'error');
+        }
+    }
+}, 2000);
+
 const meditationData = {
     'breath-awareness': {
         title: 'Breath Awareness',
@@ -373,27 +417,87 @@ const meditationData = {
     'body-scan': {
         title: 'Body Scan Relaxation',
         description: 'Release tension and connect with physical sensations',
-        duration: 900
+        duration: 900,
+        script: [
+            { time: 0, text: 'Lie down comfortably and close your eyes.' },
+            { time: 10, text: 'Bring your attention to your toes. Notice any sensations...' },
+            { time: 60, text: 'Slowly move your awareness up to your feet, ankles, and calves...' },
+            { time: 180, text: 'Continue scanning up through your knees, thighs, and hips...' },
+            { time: 300, text: 'Bring attention to your abdomen and lower back...' },
+            { time: 420, text: 'Move up to your chest and upper back...' },
+            { time: 540, text: 'Focus on your shoulders, arms, and hands...' },
+            { time: 660, text: 'Finally, bring awareness to your neck, face, and head...' },
+            { time: 840, text: 'Feel your entire body relaxed and at ease...' },
+            { time: 880, text: 'When ready, gently open your eyes.' }
+        ]
     },
     'loving-kindness': {
         title: 'Loving-Kindness (Metta)',
         description: 'Cultivate compassion for self and all beings',
-        duration: 720
+        duration: 720,
+        script: [
+            { time: 0, text: 'Sit comfortably and close your eyes.' },
+            { time: 10, text: 'Bring to mind someone you love deeply...' },
+            { time: 60, text: 'Silently repeat: May you be happy. May you be healthy...' },
+            { time: 180, text: 'Now bring to mind a neutral person...' },
+            { time: 240, text: 'Repeat: May you be happy. May you be healthy...' },
+            { time: 360, text: 'Now bring to mind someone you have difficulty with...' },
+            { time: 420, text: 'Repeat: May you be happy. May you be healthy...' },
+            { time: 540, text: 'Finally, extend these wishes to all beings everywhere...' },
+            { time: 660, text: 'May all beings be happy. May all beings be healthy...' },
+            { time: 700, text: 'When ready, gently open your eyes.' }
+        ]
     },
     'third-eye': {
         title: 'Third Eye Activation',
         description: 'Awaken intuition and inner vision',
-        duration: 1200
+        duration: 1200,
+        script: [
+            { time: 0, text: 'Sit comfortably and close your eyes.' },
+            { time: 10, text: 'Bring your attention to the space between your eyebrows...' },
+            { time: 60, text: 'Visualize a deep indigo light glowing at your third eye...' },
+            { time: 180, text: 'With each inhale, see the light intensify...' },
+            { time: 300, text: 'With each exhale, release any tension or blockages...' },
+            { time: 480, text: 'Feel your intuition awakening, insights arising...' },
+            { time: 720, text: 'You are connected to higher wisdom and clarity...' },
+            { time: 960, text: 'When ready, gently return your awareness to the room...' },
+            { time: 1180, text: 'Gently open your eyes.' }
+        ]
     },
     'kundalini': {
         title: 'Kundalini Rising',
         description: 'Awaken primal energy at the base of the spine',
-        duration: 1500
+        duration: 1500,
+        script: [
+            { time: 0, text: 'Sit with your spine straight and close your eyes.' },
+            { time: 10, text: 'Bring your attention to the base of your spine...' },
+            { time: 60, text: 'Visualize a coiled serpent of energy resting there...' },
+            { time: 180, text: 'With each inhale, feel the serpent awakening...' },
+            { time: 300, text: 'With each exhale, see it begin to rise up your spine...' },
+            { time: 480, text: 'Feel the energy activating each chakra as it ascends...' },
+            { time: 720, text: 'Experience a sense of vitality, clarity, and bliss...' },
+            { time: 960, text: 'When the energy reaches the crown, feel a connection to the divine...' },
+            { time: 1200, text: 'Slowly bring your awareness back to your body...' },
+            { time: 1480, text: 'Gently open your eyes.' }
+        ]   
     },
     'cosmic-consciousness': {
         title: 'Cosmic Consciousness',
         description: 'Merge with the infinite awareness of the universe',
-        duration: 1800
+        duration: 1800,
+        script: [
+            { time: 0, text: 'Sit or lie down comfortably and close your eyes.' },
+            { time: 10, text: 'Take several deep breaths, relaxing your body...' },
+            { time: 60, text: 'Visualize yourself expanding beyond your physical form...' },
+            { time: 180, text: 'See yourself merging with the vastness of the cosmos...' },
+            { time: 300, text: 'Feel a profound connection to all that is...' },
+            { time: 480, text: 'Experience the unity of existence, beyond time and space...' },
+            { time: 720, text: 'You are pure consciousness, infinite and eternal...' },
+            { time: 960, text: 'When ready, slowly begin to return your awareness to your body...' },
+            { time: 1200, text: 'Feel the surface you are resting on...' },
+            { time: 1500, text: 'Gently wiggle your fingers and toes...' },
+            { time: 1780, text: 'When ready, gently open your eyes.' }
+        ]
     }
 };
 
@@ -401,6 +505,7 @@ let currentMeditation = null;
 let meditationStartTime = null;
 let meditationTimer = null;
 let meditationPlaying = false;
+let lastSpokenIndex = -1;
 
 const meditationItems = document.querySelectorAll('.meditation-item');
 const medPlayButton = document.getElementById('med-play');
@@ -411,6 +516,39 @@ const medCurrentTime = document.getElementById('med-current-time');
 const medTotalTime = document.getElementById('med-total-time');
 const medProgressFill = document.querySelector('.med-progress-fill');
 const meditationMandala = document.querySelector('.meditation-mandala');
+const medScriptText = document.getElementById('med-script-text');
+const voiceEnabled = document.getElementById('voice-enabled');
+const voiceRate = document.getElementById('voice-rate');
+const voicePitch = document.getElementById('voice-pitch');
+const testVoiceBtn = document.getElementById('test-voice');
+
+debugLog('=== VOICE CONTROLS INIT ===', 'success');
+debugLog(`voiceEnabled: ${!!voiceEnabled}`);
+debugLog(`voiceRate: ${!!voiceRate}`);
+debugLog(`voicePitch: ${!!voicePitch}`);
+debugLog(`testVoiceBtn: ${!!testVoiceBtn}`);
+debugLog(`Speech Synthesis: ${('speechSynthesis' in window) ? 'YES' : 'NO'}`, ('speechSynthesis' in window) ? 'success' : 'error');
+
+// Voice control event listeners
+if (voiceRate) {
+    voiceRate.addEventListener('input', (e) => {
+        console.log('Voice rate changed to:', e.target.value);
+    });
+}
+
+if (voicePitch) {
+    voicePitch.addEventListener('input', (e) => {
+        console.log('Voice pitch changed to:', e.target.value);
+    });
+}
+
+// Test voice button
+if (testVoiceBtn) {
+    testVoiceBtn.addEventListener('click', () => {
+        debugLog('Test voice button clicked!', 'warn');
+        speakText('This is a test of the meditation voice guidance system.');
+    });
+}
 
 meditationItems.forEach(item => {
     item.addEventListener('click', () => {
@@ -434,6 +572,7 @@ function loadMeditation(medId) {
     medDuration.textContent = `${minutes} minutes`;
     medTotalTime.textContent = formatTime(duration);
     medCurrentTime.textContent = '0:00';
+    medScriptText.textContent = 'Press play to begin...';
     
     medPlayButton.disabled = false;
 }
@@ -449,12 +588,20 @@ medPlayButton.addEventListener('click', () => {
 function playMeditation() {
     if (!currentMeditation) return;
     
+    debugLog('=== PLAY MEDITATION ===', 'success');
+    debugLog(`Meditation: ${currentMeditation.title}`);
+    debugLog(`Voice enabled: ${voiceEnabled ? voiceEnabled.checked : 'N/A'}`);
+    
     meditationPlaying = true;
     medPlayButton.classList.add('playing');
     meditationMandala.classList.add('playing');
     
     if (!meditationStartTime) {
         meditationStartTime = Date.now();
+        lastSpokenIndex = -1;
+        debugLog('New meditation session started', 'success');
+    } else {
+        debugLog('Resuming meditation');
     }
     
     meditationTimer = setInterval(updateMeditationProgress, 100);
@@ -469,13 +616,22 @@ function pauseMeditation() {
         clearInterval(meditationTimer);
         meditationTimer = null;
     }
+    
+    // Stop any ongoing speech
+    if (window.speechSynthesis.speaking) {
+        window.speechSynthesis.cancel();
+    }
 }
 
 function stopMeditation() {
     pauseMeditation();
     meditationStartTime = null;
+    lastSpokenIndex = -1;
     medProgressFill.style.width = '0%';
     medCurrentTime.textContent = '0:00';
+    if (currentMeditation) {
+        medScriptText.textContent = 'Press play to begin...';
+    }
 }
 
 function updateMeditationProgress() {
@@ -488,8 +644,125 @@ function updateMeditationProgress() {
     medProgressFill.style.width = progress + '%';
     medCurrentTime.textContent = formatTime(Math.floor(elapsed));
     
+    // Display current meditation script text and speak it
+    const script = currentMeditation.script;
+    let currentText = '';
+    let currentIndex = -1;
+    
+    for (let i = script.length - 1; i >= 0; i--) {
+        if (elapsed >= script[i].time) {
+            currentText = script[i].text;
+            currentIndex = i;
+            break;
+        }
+    }
+    
+    if (currentText && medScriptText.textContent !== currentText) {
+        debugLog(`📝 New text at ${Math.floor(elapsed)}s`, 'success');
+        
+        medScriptText.textContent = currentText;
+        medScriptText.style.animation = 'none';
+        setTimeout(() => {
+            medScriptText.style.animation = 'fadeIn 1s ease-in';
+        }, 10);
+        
+        const voiceEnabledCheckbox = document.getElementById('voice-enabled');
+        const isVoiceEnabled = voiceEnabledCheckbox && voiceEnabledCheckbox.checked;
+        
+        debugLog(`Voice: ${isVoiceEnabled ? 'ON' : 'OFF'}, Index: ${currentIndex}, Last: ${lastSpokenIndex}`);
+        
+        if (isVoiceEnabled && currentIndex > lastSpokenIndex) {
+            debugLog('🎤 SPEAKING NOW!', 'warn');
+            speakText(currentText);
+            lastSpokenIndex = currentIndex;
+        } else {
+            debugLog(`Not speaking: ${!isVoiceEnabled ? 'disabled' : 'already spoken'}`, 'warn');
+        }
+    }
+    
     if (elapsed >= duration) {
         stopMeditation();
+    }
+}
+
+function speakText(text) {
+    debugLog('=== SPEAK TEXT ===', 'warn');
+    debugLog(`Text: ${text.substring(0, 40)}...`);
+    
+    // Check if speech synthesis exists
+    if (!('speechSynthesis' in window)) {
+        debugLog('❌ Speech API NOT in browser', 'error');
+        return;
+    }
+    
+    debugLog('✅ Speech API exists', 'success');
+    debugLog(`Voices reported: ${voices.length}`);
+    
+    try {
+        const synth = window.speechSynthesis;
+        
+        // Cancel any ongoing speech
+        debugLog('Cancelling previous speech...');
+        synth.cancel();
+        
+        // Wait a bit for cancel to complete
+        setTimeout(() => {
+            // Create utterance
+            const utterance = new SpeechSynthesisUtterance(text);
+            
+            // Set properties
+            utterance.rate = 0.85;  // Slower for meditation
+            utterance.pitch = 1.0;
+            utterance.volume = 1.0;
+            utterance.lang = 'en-US';
+            
+            debugLog(`Rate: ${utterance.rate}, Pitch: ${utterance.pitch}`);
+            
+            // Try to set a voice even if voices array is empty
+            const availableVoices = synth.getVoices();
+            debugLog(`Live voices check: ${availableVoices.length}`);
+            
+            if (availableVoices.length > 0) {
+                utterance.voice = availableVoices[0];
+                debugLog(`Set voice: ${availableVoices[0].name}`, 'success');
+            } else {
+                debugLog('No voices, trying browser default...', 'warn');
+                // Don't set voice, let browser use default
+            }
+            
+            // Event handlers
+            utterance.onstart = function() {
+                debugLog('🔊 SPEECH STARTED!!!', 'success');
+            };
+            
+            utterance.onend = function() {
+                debugLog('🔇 Speech ended', 'success');
+            };
+            
+            utterance.onerror = function(e) {
+                debugLog(`❌ Error: ${e.error} - ${e.message}`, 'error');
+            };
+            
+            // Try to speak
+            debugLog('⏩ Calling synth.speak()...');
+            synth.speak(utterance);
+            
+            // Check if it's speaking
+            setTimeout(() => {
+                debugLog(`Is speaking? ${synth.speaking}`, synth.speaking ? 'success' : 'error');
+                debugLog(`Is pending? ${synth.pending}`);
+                
+                if (!synth.speaking && !synth.pending) {
+                    debugLog('❌ Speech did not start! Browser may not support TTS.', 'error');
+                    debugLog('Try using Chrome or Edge browser', 'warn');
+                }
+            }, 200);
+            
+        }, 150);
+        
+    } catch (error) {
+        debugLog(`❌ EXCEPTION: ${error.message}`, 'error');
+        debugLog(`Stack: ${error.stack}`);
     }
 }
 
@@ -680,4 +953,38 @@ window.addEventListener('beforeunload', () => {
     stopMeditation();
 });
 
+// ==========================================
+// INITIALIZE SPEECH SYNTHESIS ON DOM LOAD
+// ==========================================
+
+// Initialize speech synthesis with a silent test
+if ('speechSynthesis' in window) {
+    setTimeout(() => {
+        const testUtterance = new SpeechSynthesisUtterance('');
+        testUtterance.volume = 0;
+        window.speechSynthesis.speak(testUtterance);
+        window.speechSynthesis.cancel();
+        console.log('Speech synthesis initialized');
+    }, 500);
+}
+
+// Debug function for speech synthesis
+window.debugSpeech = function() {
+    console.log('=== SPEECH SYNTHESIS DEBUG ===');
+    console.log('Speech synthesis supported:', 'speechSynthesis' in window);
+    console.log('Speech synthesis speaking:', window.speechSynthesis.speaking);
+    console.log('Speech synthesis pending:', window.speechSynthesis.pending);
+    console.log('Speech synthesis paused:', window.speechSynthesis.paused);
+    
+    const voices = window.speechSynthesis.getVoices();
+    console.log('Available voices:', voices.length);
+    voices.forEach((v, i) => {
+        console.log(`${i}: ${v.name} (${v.lang}) - ${v.default ? 'default' : ''}`);
+    });
+    
+    // Test speak
+    speakText('Debug test. If you can hear this, speech synthesis is working.');
+};
+
 console.log('🕉️ Spiritual Awakening Portal Initialized ✨');
+console.log('Type debugSpeech() in console to test speech synthesis');
